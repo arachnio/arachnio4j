@@ -1,6 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>io.arachn</groupId>
     <artifactId>arachnio4j</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -9,33 +8,28 @@
     <description>Arachnio client for Java 11+</description>
     <url>https://github.com/arachnio/arachnio4j</url>
     <packaging>jar</packaging>
-
     <organization>
         <name>Arachnio</name>
         <url>https://www.arachn.io/</url>
     </organization>
-
     <scm>
         <connection>scm:git:ssh://git@github.com/arachnio/arachnio4j.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/arachnio/arachnio4j.git</developerConnection>
         <url>https://github.com/arachnio/arachnio4j/tree/main</url>
-      <tag>HEAD</tag>
-  </scm>
-
+        <tag>HEAD</tag>
+    </scm>
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
             <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
         </license>
     </licenses>
-
     <developers>
         <developer>
             <name>Andy Boothe</name>
             <email>andy.boothe@gmail.com</email>
         </developer>
     </developers>
-
     <distributionManagement>
         <snapshotRepository>
             <id>ossrh</id>
@@ -48,30 +42,25 @@
             <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
-
     <issueManagement>
         <system>GitHub</system>
         <url>https://github.com/arachnio/arachnio4j</url>
     </issueManagement>
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <sonar.organization>arachnio</sonar.organization>
         <sonar.exclusions>
             **/pom.xml
         </sonar.exclusions>
-
-        <arachnio.spi.version>0.1.0</arachnio.spi.version>
+        <arachnio.spi.version>0.1.1</arachnio.spi.version>
         <hamcrest.version>1.3</hamcrest.version>
         <junit.version>4.13.2</junit.version>
         <guava.version>31.1-jre</guava.version>
         <mockwebserver.version>4.10.0</mockwebserver.version>
     </properties>
-
     <build>
         <plugins>
             <plugin>
@@ -104,12 +93,16 @@
             </plugin>
         </plugins>
     </build>
-
     <dependencies>
         <dependency>
-            <groupId>io.aleph0.skein</groupId>
+            <groupId>io.arachn</groupId>
             <artifactId>service</artifactId>
             <version>${arachnio.spi.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+            <version>2.13.2</version>
         </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>
@@ -136,7 +129,6 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
     <!-- For releasing to maven central -->
     <profiles>
         <profile>
@@ -209,4 +201,3 @@
         </profile>
     </profiles>
 </project>
-

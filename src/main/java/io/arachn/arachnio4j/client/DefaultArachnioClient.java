@@ -32,21 +32,21 @@ import java.net.http.HttpRequest.BodyPublishers;
 import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
 import java.nio.charset.StandardCharsets;
-import io.aleph0.skein.spi.model.DomainName;
-import io.aleph0.skein.spi.model.DomainNameBatch;
-import io.aleph0.skein.spi.model.ExtractedLink;
-import io.aleph0.skein.spi.model.Link;
-import io.aleph0.skein.spi.model.LinkBatch;
-import io.aleph0.skein.spi.model.ParsedDomainName;
-import io.aleph0.skein.spi.model.ParsedDomainNameBatch;
-import io.aleph0.skein.spi.model.ParsedLink;
-import io.aleph0.skein.spi.model.ParsedLinkBatch;
-import io.aleph0.skein.spi.model.UnwoundLink;
-import io.aleph0.skein.spi.model.UnwoundLinkBatch;
 import io.arachn.arachnio4j.ArachnioClient;
 import io.arachn.arachnio4j.exception.ForbiddenArachnioException;
 import io.arachn.arachnio4j.exception.InternalErrorArachnioException;
 import io.arachn.arachnio4j.util.Jackson;
+import io.arachn.spi.model.DomainName;
+import io.arachn.spi.model.DomainNameBatch;
+import io.arachn.spi.model.ExtractedLink;
+import io.arachn.spi.model.Link;
+import io.arachn.spi.model.LinkBatch;
+import io.arachn.spi.model.ParsedDomainName;
+import io.arachn.spi.model.ParsedDomainNameBatch;
+import io.arachn.spi.model.ParsedLink;
+import io.arachn.spi.model.ParsedLinkBatch;
+import io.arachn.spi.model.UnwoundLink;
+import io.arachn.spi.model.UnwoundLinkBatch;
 
 /**
  * You can subscribe at <a href="https://developer.arachn.io/">https://developer.arachn.io/</a>.
@@ -63,7 +63,7 @@ public class DefaultArachnioClient implements ArachnioClient {
   /**
    * The header used to perform authentication for the API
    */
-  private static final String BLOBR_API_KEY_HEADER_NAME = "BLOBR-API-KEY";
+  /* default */ static final String BLOBR_API_KEY_HEADER_NAME = "BLOBR-API-KEY";
 
   public static HttpClient defaultClient() {
     return HttpClient.newHttpClient();

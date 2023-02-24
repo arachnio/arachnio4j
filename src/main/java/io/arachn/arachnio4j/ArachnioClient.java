@@ -20,19 +20,19 @@
 package io.arachn.arachnio4j;
 
 import java.util.List;
-import io.aleph0.skein.spi.model.DomainName;
-import io.aleph0.skein.spi.model.DomainNameBatch;
-import io.aleph0.skein.spi.model.DomainNameBatchEntry;
-import io.aleph0.skein.spi.model.ExtractedLink;
-import io.aleph0.skein.spi.model.Link;
-import io.aleph0.skein.spi.model.LinkBatch;
-import io.aleph0.skein.spi.model.LinkBatchEntry;
-import io.aleph0.skein.spi.model.ParsedDomainName;
-import io.aleph0.skein.spi.model.ParsedDomainNameBatch;
-import io.aleph0.skein.spi.model.ParsedLink;
-import io.aleph0.skein.spi.model.ParsedLinkBatch;
-import io.aleph0.skein.spi.model.UnwoundLink;
-import io.aleph0.skein.spi.model.UnwoundLinkBatch;
+import io.arachn.spi.model.DomainName;
+import io.arachn.spi.model.DomainNameBatch;
+import io.arachn.spi.model.DomainNameBatchEntry;
+import io.arachn.spi.model.ExtractedLink;
+import io.arachn.spi.model.Link;
+import io.arachn.spi.model.LinkBatch;
+import io.arachn.spi.model.LinkBatchEntry;
+import io.arachn.spi.model.ParsedDomainName;
+import io.arachn.spi.model.ParsedDomainNameBatch;
+import io.arachn.spi.model.ParsedLink;
+import io.arachn.spi.model.ParsedLinkBatch;
+import io.arachn.spi.model.UnwoundLink;
+import io.arachn.spi.model.UnwoundLinkBatch;
 
 public interface ArachnioClient {
   default ParsedDomainName parseDomainName(String hostname) {
