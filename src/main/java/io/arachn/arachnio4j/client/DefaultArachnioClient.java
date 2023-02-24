@@ -63,7 +63,7 @@ public class DefaultArachnioClient implements ArachnioClient {
   /**
    * The header used to perform authentication for the API
    */
-  /* default */ static final String BLOBR_API_KEY_HEADER_NAME = "BLOBR-API-KEY";
+  /* default */ static final String BLOBR_API_KEY_HEADER_NAME = "X-BLOBR-KEY";
 
   public static HttpClient defaultClient() {
     return HttpClient.newHttpClient();
