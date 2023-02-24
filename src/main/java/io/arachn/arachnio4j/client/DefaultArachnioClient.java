@@ -65,6 +65,8 @@ public class DefaultArachnioClient implements ArachnioClient {
    */
   /* default */ static final String BLOBR_API_KEY_HEADER_NAME = "X-BLOBR-KEY";
 
+  private static final String CONTENT_TYPE_HEADER_NAME = "Content-Type";
+
   public static HttpClient defaultClient() {
     return HttpClient.newHttpClient();
   }
@@ -96,6 +98,7 @@ public class DefaultArachnioClient implements ArachnioClient {
           getClient().send(
               HttpRequest.newBuilder(URI.create(format("%s/domains/parse", getBaseUrl())))
                   .header(BLOBR_API_KEY_HEADER_NAME, getKey())
+                  .header(CONTENT_TYPE_HEADER_NAME, "application/json")
                   .POST(BodyPublishers.ofString(Jackson.serialize(domainName),
                       StandardCharsets.UTF_8))
                   .build(),
@@ -127,7 +130,8 @@ public class DefaultArachnioClient implements ArachnioClient {
     try {
       response = getClient().send(
           HttpRequest.newBuilder(URI.create(format("%s/domains/parse/batch", getBaseUrl())))
-              .header(BLOBR_API_KEY_HEADER_NAME, getKey()).POST(BodyPublishers
+              .header(BLOBR_API_KEY_HEADER_NAME, getKey())
+              .header(CONTENT_TYPE_HEADER_NAME, "application/json").POST(BodyPublishers
                   .ofString(Jackson.serialize(domainNameBatch), StandardCharsets.UTF_8))
               .build(),
           BodyHandlers.ofString(StandardCharsets.UTF_8));
@@ -159,6 +163,7 @@ public class DefaultArachnioClient implements ArachnioClient {
       response = getClient().send(HttpRequest
           .newBuilder(URI.create(format("%s/links/extract", getBaseUrl())))
           .header(BLOBR_API_KEY_HEADER_NAME, getKey())
+          .header(CONTENT_TYPE_HEADER_NAME, "application/json")
           .POST(BodyPublishers.ofString(Jackson.serialize(link), StandardCharsets.UTF_8)).build(),
           BodyHandlers.ofString(StandardCharsets.UTF_8));
     } catch (InterruptedException e) {
@@ -189,6 +194,7 @@ public class DefaultArachnioClient implements ArachnioClient {
       response = getClient().send(HttpRequest
           .newBuilder(URI.create(format("%s/links/parse", getBaseUrl())))
           .header(BLOBR_API_KEY_HEADER_NAME, getKey())
+          .header(CONTENT_TYPE_HEADER_NAME, "application/json")
           .POST(BodyPublishers.ofString(Jackson.serialize(link), StandardCharsets.UTF_8)).build(),
           BodyHandlers.ofString(StandardCharsets.UTF_8));
     } catch (InterruptedException e) {
@@ -221,6 +227,7 @@ public class DefaultArachnioClient implements ArachnioClient {
               .send(
                   HttpRequest.newBuilder(URI.create(format("%s/links/parse/batch", getBaseUrl())))
                       .header(BLOBR_API_KEY_HEADER_NAME, getKey())
+                      .header(CONTENT_TYPE_HEADER_NAME, "application/json")
                       .POST(BodyPublishers.ofString(Jackson.serialize(linkBatch),
                           StandardCharsets.UTF_8))
                       .build(),
@@ -253,6 +260,7 @@ public class DefaultArachnioClient implements ArachnioClient {
       response = getClient().send(HttpRequest
           .newBuilder(URI.create(format("%s/links/unwind", getBaseUrl())))
           .header(BLOBR_API_KEY_HEADER_NAME, getKey())
+          .header(CONTENT_TYPE_HEADER_NAME, "application/json")
           .POST(BodyPublishers.ofString(Jackson.serialize(link), StandardCharsets.UTF_8)).build(),
           BodyHandlers.ofString(StandardCharsets.UTF_8));
     } catch (InterruptedException e) {
@@ -285,6 +293,7 @@ public class DefaultArachnioClient implements ArachnioClient {
               .send(
                   HttpRequest.newBuilder(URI.create(format("%s/links/unwind/batch", getBaseUrl())))
                       .header(BLOBR_API_KEY_HEADER_NAME, getKey())
+                      .header(CONTENT_TYPE_HEADER_NAME, "application/json")
                       .POST(BodyPublishers.ofString(Jackson.serialize(linkBatch),
                           StandardCharsets.UTF_8))
                       .build(),
