@@ -21,16 +21,19 @@ package io.arachn.arachnio4j.util;
 
 import java.io.UncheckedIOException;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import io.arachn.spi.model.serialization.ArachnioModule;
+import io.arachn.spi.model.serialization.ArachnioClientModule;
 
 public final class Jackson {
   private Jackson() {}
 
-  public static final ObjectMapper MAPPER = new ObjectMapper()
-      .registerModule(new ArachnioModule())
-      .registerModule(new JavaTimeModule());
+  public static final ObjectMapper MAPPER =
+      new ObjectMapper().disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
+          .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+          .registerModule(new ArachnioClientModule()).registerModule(new JavaTimeModule());
 
   public static <T> String serialize(T value) {
     try {
