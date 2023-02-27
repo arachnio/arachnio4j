@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.arachn</groupId>
     <artifactId>arachnio4j</artifactId>
-    <version>0.1.4.0</version>
+    <version>0.1.4.1-SNAPSHOT</version>
     <name>arachnio4j</name>
     <inceptionYear>2022</inceptionYear>
     <description>Arachnio client for Java 11+</description>
@@ -16,7 +16,7 @@
         <connection>scm:git:ssh://git@github.com/arachnio/arachnio4j.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/arachnio/arachnio4j.git</developerConnection>
         <url>https://github.com/arachnio/arachnio4j/tree/main</url>
-        <tag>v0.1.4.0</tag>
+        <tag>HEAD</tag>
     </scm>
     <licenses>
         <license>
