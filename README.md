@@ -1,4 +1,4 @@
-# arachnio4j
+# arachnio4j [![tests](https://github.com/arachnio/arachnio4j/actions/workflows/tests.yml/badge.svg)](https://github.com/arachnio/arachnio4j/actions/workflows/tests.yml) ![Maven Central](https://img.shields.io/maven-central/v/io.arachn/arachnio4j)
 
 [Arachnio](https://www.arachn.io/) client library for Java 11+
 
